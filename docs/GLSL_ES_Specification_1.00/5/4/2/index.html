@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>GLSL ES Specification 1.00----5.4.2 向量和矩阵构造器 - lyyh0&#039;s website</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="lyyh0&#039;s website"><meta name="msapplication-TileImage" content="/res/0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="lyyh0&#039;s website"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="返回目录 构造函数可用于从一组标量、向量或矩阵中创建向量或矩阵。这包括缩短矢量的能力。 如果向量构造函数只有一个标量参数，则用于将所构造向量的所有组件初始化为该标量的值。如果矩阵构造函数只有一个标量参数，则它用于初始化矩阵对角线上的所有组件，其余组件初始化为0.0。 如果一个向量是由多个标量、向量、矩阵或它们的混合构成的，那么向量的分量将从参数的分量开始按顺序构造。参数将从左向右被消耗，每个参数的"><meta property="og:type" content="article"><meta property="og:title" content="GLSL ES Specification 1.00----5.4.2 向量和矩阵构造器"><meta property="og:url" content="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/5/4/2/"><meta property="og:site_name" content="lyyh0&#039;s website"><meta property="og:description" content="返回目录 构造函数可用于从一组标量、向量或矩阵中创建向量或矩阵。这包括缩短矢量的能力。 如果向量构造函数只有一个标量参数，则用于将所构造向量的所有组件初始化为该标量的值。如果矩阵构造函数只有一个标量参数，则它用于初始化矩阵对角线上的所有组件，其余组件初始化为0.0。 如果一个向量是由多个标量、向量、矩阵或它们的混合构成的，那么向量的分量将从参数的分量开始按顺序构造。参数将从左向右被消耗，每个参数的"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://www.lyyh0.cloudns.be/img/og_image.png"><meta property="article:published_time" content="1899-12-31T15:55:00.000Z"><meta property="article:author" content="lyyh0"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://www.lyyh0.cloudns.be/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/5/4/2/"},"headline":"GLSL ES Specification 1.00----5.4.2 向量和矩阵构造器","image":["https://www.lyyh0.cloudns.be/img/og_image.png"],"datePublished":"1899-12-31T15:55:00.000Z","author":{"@type":"Person","name":"lyyh0"},"publisher":{"@type":"Organization","name":"lyyh0's website","logo":{"@type":"ImageObject"}},"description":"返回目录 构造函数可用于从一组标量、向量或矩阵中创建向量或矩阵。这包括缩短矢量的能力。 如果向量构造函数只有一个标量参数，则用于将所构造向量的所有组件初始化为该标量的值。如果矩阵构造函数只有一个标量参数，则它用于初始化矩阵对角线上的所有组件，其余组件初始化为0.0。 如果一个向量是由多个标量、向量、矩阵或它们的混合构成的，那么向量的分量将从参数的分量开始按顺序构造。参数将从左向右被消耗，每个参数的"}</script><link rel="canonical" href="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/5/4/2/"><link rel="icon" href="/res/0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">lyyh0&#039;s website</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/docs/GLSL_ES_Specification_1.00">GLSL ES 1.00</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="1899-12-31T15:55:00.000Z" title="1900/1/1 00:00:43">1900-01-01</time>发表</span></div></div><h1 class="title is-3 is-size-4-mobile">GLSL ES Specification 1.00----5.4.2 向量和矩阵构造器</h1><div class="content"><p><a href="../../.."><strong>返回目录</strong></a></p>
+<p>构造函数可用于从一组标量、向量或矩阵中创建向量或矩阵。这包括缩短矢量的能力。</p>
+<p>如果向量构造函数只有一个标量参数，则用于将所构造向量的所有组件初始化为该标量的值。如果矩阵构造函数只有一个标量参数，则它用于初始化矩阵对角线上的所有组件，其余组件初始化为0.0。</p>
+<p>如果一个向量是由多个标量、向量、矩阵或它们的混合构成的，那么向量的分量将从参数的分量开始按顺序构造。参数将从左向右被消耗，每个参数的所有组件都将按顺序被消耗，然后再消耗下一个参数的任何组件。类似地，用于从多个标量或向量或这些标量或向量的混合构建矩阵。矩阵组件将按列主顺序构建和使用。在这些情况下，参数中必须提供足够的组件，以便为构造值中的每个组件提供一个初始化器。在上次使用的参数之外提供额外的参数是错误的。</p>
+<p>如果一个矩阵是由一个矩阵构造的，那么结果中每个在参数中有对应分量（列<em><strong>i，</strong></em>行<em><strong>j</strong></em>）的分量（列<em><strong>i，</strong></em>行<em><strong>j</strong></em>）都将从那里初始化。所有其他组件都将初始化为单位矩阵。如果向矩阵构造函数提供矩阵参数，则具有任何其他参数都是错误的。</p>
+<p>如果构造函数的参数的基本类型（<strong>bool、int</strong>或<strong>float</strong>）与正在构造的对象的基本类型不匹配，则使用标量构造规则（如上所述）来转换参数。</p>
+<p>一些有用的向量构造函数如下：</p>
+<p>&emsp;&emsp;vec3(float)&emsp;&#x2F;&#x2F; 用浮点数初始化的每个组件<br>&emsp;&emsp;vec4(ivec4)&emsp;&#x2F;&#x2F; 使用分量转换生成vec4</p>
+<p>&emsp;&emsp;vec2(float, float)&emsp;&#x2F;&#x2F; 用2个浮点数初始化vec2<br>&emsp;&emsp;ivec3(int, int, int)&emsp;&#x2F;&#x2F; 用3个整数初始化ivec3<br>&emsp;&emsp;bvec4(int, int, float, float)&emsp;&#x2F;&#x2F; 使用4个布尔转换</p>
+<p>&emsp;&emsp;vec2(vec3)&emsp;&#x2F;&#x2F; 删除vec3的第三个组件<br>&emsp;&emsp;vec3(vec4)&emsp;&#x2F;&#x2F; 删除vec4的第四个组件</p>
+<p>&emsp;&emsp;vec3(vec2, float)&emsp;&#x2F;&#x2F; vec3.x &#x3D; vec2.x, vec3.y &#x3D; vec2.y, vec3.z &#x3D; float<br>&emsp;&emsp;vec3(float, vec2)&emsp;&#x2F;&#x2F; vec3.x &#x3D; float, vec3.y &#x3D; vec2.x, vec3.z &#x3D; vec2.y<br>&emsp;&emsp;vec4(vec3, float)<br>&emsp;&emsp;vec4(float, vec3)<br>&emsp;&emsp;vec4(vec2, vec2)</p>
+<p>其中一些例子是：</p>
+<p>&emsp;&emsp;vec4 color &#x3D; vec4(0.0, 1.0, 0.0, 1.0);<br>&emsp;&emsp;vec4 rgba &#x3D; vec4(1.0);&emsp;&#x2F;&#x2F; 将每个组件设置为1.0<br>&emsp;&emsp;vec3 rgb &#x3D; vec3(color);&emsp;&#x2F;&#x2F; 放下第四个组件</p>
+<p>要在所有其他元素都设置为零的情况下初始化矩阵的对角线，请执行以下操作：</p>
+<p>&emsp;&emsp;mat2(float)<br>&emsp;&emsp;mat3(float)<br>&emsp;&emsp;mat4(float)</p>
+<p>通过指定向量或分别通过mat2、mat3和mat4的所有4、9或16个浮点数来初始化矩阵。浮点数按列主顺序分配给元素。</p>
+<p>&emsp;&emsp;mat2(vec2, vec2);<br>&emsp;&emsp;mat3(vec3, vec3, vec3);<br>&emsp;&emsp;mat4(vec4, vec4, vec4, vec4);</p>
+<p>&emsp;&emsp;mat2(float, float,<br>&emsp;&emsp;&emsp;&emsp;float, float);</p>
+<p>&emsp;&emsp;mat3(float, float, float,<br>&emsp;&emsp;&emsp;&emsp;float, float, float,<br>&emsp;&emsp;&emsp;&emsp;float, float, float);</p>
+<p>&emsp;&emsp;mat4(float, float, float, float,<br>&emsp;&emsp;&emsp;&emsp;float, float, float, float,<br>&emsp;&emsp;&emsp;&emsp;float, float, float, float,<br>&emsp;&emsp;&emsp;&emsp;float, float, float, float);</p>
+<p>只要存在足够的组件来初始化矩阵，就存在广泛的其他可能性。</p>
+<!-- flag of hidden posts --></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/res/0.png" alt="lyyh0"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">lyyh0</p><p class="is-size-6 is-block">lyyh0@lyyh0.cloudns.be</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">0</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/lyyh0"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Bilibili" href="https://space.bilibili.com/602159888"><i class="fab fa-bilibili"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://phira.dmocken.top/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Dmocken的Phira下载站</span></span><span class="level-right"><span class="level-item tag">phira.dmocken.top</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">lyyh0&#039;s website</a><p class="is-size-7"><span>&copy; 2025 lyyh0</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><!--!--></body></html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>GLSL ES Specification 1.00----4.6.1 不变限定符 - lyyh0&#039;s website</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="lyyh0&#039;s website"><meta name="msapplication-TileImage" content="/res/0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="lyyh0&#039;s website"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="返回目录 为了确保特定的输出变量是不变的，有必要使用invariant限定符。它可以用来将之前声明的变量限定为不变变量 &amp;emsp;&amp;emsp;invariant gl_Position;&amp;emsp;&amp;#x2F;&amp;#x2F; 使现有的gl_Position保持不变&amp;emsp;&amp;emsp;varying mediump vec3 Color; &amp;emsp;&amp;emsp;invariant Color;"><meta property="og:type" content="article"><meta property="og:title" content="GLSL ES Specification 1.00----4.6.1 不变限定符"><meta property="og:url" content="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/4/6/1/"><meta property="og:site_name" content="lyyh0&#039;s website"><meta property="og:description" content="返回目录 为了确保特定的输出变量是不变的，有必要使用invariant限定符。它可以用来将之前声明的变量限定为不变变量 &amp;emsp;&amp;emsp;invariant gl_Position;&amp;emsp;&amp;#x2F;&amp;#x2F; 使现有的gl_Position保持不变&amp;emsp;&amp;emsp;varying mediump vec3 Color; &amp;emsp;&amp;emsp;invariant Color;"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://www.lyyh0.cloudns.be/img/og_image.png"><meta property="article:published_time" content="1899-12-31T15:55:00.000Z"><meta property="article:author" content="lyyh0"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://www.lyyh0.cloudns.be/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/4/6/1/"},"headline":"GLSL ES Specification 1.00----4.6.1 不变限定符","image":["https://www.lyyh0.cloudns.be/img/og_image.png"],"datePublished":"1899-12-31T15:55:00.000Z","author":{"@type":"Person","name":"lyyh0"},"publisher":{"@type":"Organization","name":"lyyh0's website","logo":{"@type":"ImageObject"}},"description":"返回目录 为了确保特定的输出变量是不变的，有必要使用invariant限定符。它可以用来将之前声明的变量限定为不变变量 &emsp;&emsp;invariant gl_Position;&emsp;&#x2F;&#x2F; 使现有的gl_Position保持不变&emsp;&emsp;varying mediump vec3 Color; &emsp;&emsp;invariant Color;"}</script><link rel="canonical" href="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/4/6/1/"><link rel="icon" href="/res/0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">lyyh0&#039;s website</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/docs/GLSL_ES_Specification_1.00">GLSL ES 1.00</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="1899-12-31T15:55:00.000Z" title="1900/1/1 00:00:43">1900-01-01</time>发表</span></div></div><h1 class="title is-3 is-size-4-mobile">GLSL ES Specification 1.00----4.6.1 不变限定符</h1><div class="content"><p><a href="../../.."><strong>返回目录</strong></a></p>
+<p>为了确保特定的输出变量是不变的，有必要使用<strong>invariant</strong>限定符。它可以用来将之前声明的变量限定为不变变量</p>
+<p>&emsp;&emsp;invariant gl_Position;&emsp;&#x2F;&#x2F; 使现有的gl_Position保持不变<br>&emsp;&emsp;varying mediump vec3 Color;</p>
+<p>&emsp;&emsp;invariant Color;&emsp;&#x2F;&#x2F; 使现有颜色不变</p>
+<p>或者在声明变量时作为声明的一部分</p>
+<p>&emsp;&emsp;invariant varying mediump vec3 Color;</p>
+<p>这些是唯一可以使用不变限定符的情况。当与声明结合时，不变限定符必须出现在任何存储限定符（<strong>varying</strong>）之前。</p>
+<p>只有以下变量可以声明为不变量：</p>
+<ul>
+<li><p>从顶点着色器输出的内置特殊变量</p>
+</li>
+<li><p>改变顶点着色器输出的变量</p>
+</li>
+<li><p>输入到片段着色器的内置特殊变量</p>
+</li>
+<li><p>改变输入到片段着色器的变量</p>
+</li>
+<li><p>片段着色器输出的内置特殊变量。</p>
+</li>
+</ul>
+<p><strong>invariant</strong>关键字后面可以跟一个逗号分隔的先前声明的标识符列表。所有对<strong>invariant</strong>的使用都必须在全局范围内，并且在将变量声明为不变量之前。</p>
+<p>为了保证特定输出变量在两个着色器中的不变性，以下条件也必须成立：</p>
+<ul>
+<li><p>输出变量在两个着色器中都声明为不变的。</p>
+</li>
+<li><p>表达式和控制流消耗的所有着色器输入变量都必须输入相同的值，这些值有助于分配给输出变量的值。</p>
+</li>
+<li><p>对于任何有助于输出变量值的纹理函数调用，纹理格式、纹理像素值和纹理过滤的设置方式都是相同的。</p>
+</li>
+<li><p>所有输入值都以相同的方式操作。重要表达式和任何中间表达式中的所有操作必须相同，具有相同的操作数顺序和相同的结合性，才能给出相同的求值顺序。中间变量和函数必须声明为具有相同显式或隐式精度限定符的相同类型。任何影响输出值的控制流都必须相同，用于确定此控制流的任何表达式也必须遵循这些不变性规则。</p>
+</li>
+</ul>
+<p>本质上，所有导致不变输出的数据流和控制流都必须匹配。</p>
+<p>最初，默认情况下，所有输出变量都允许是变量。要强制所有输出变量保持不变，请使用pragma</p>
+<p>&emsp;&emsp;#pragma STDGL invariant(all)</p>
+<p>在编译单元中的所有声明之前。如果在声明任何变量或函数之后使用此语法，则表现为不变的输出集是未定义的。</p>
+<p>通常，不变性是以牺牲优化的灵活性为代价来确保的，因此使用不变性可能会降低性能。因此，使用此语法是为了辅助调试，避免单独将所有输出变量声明为不变量。</p>
+<!-- flag of hidden posts --></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/res/0.png" alt="lyyh0"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">lyyh0</p><p class="is-size-6 is-block">lyyh0@lyyh0.cloudns.be</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">0</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/lyyh0"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Bilibili" href="https://space.bilibili.com/602159888"><i class="fab fa-bilibili"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://phira.dmocken.top/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Dmocken的Phira下载站</span></span><span class="level-right"><span class="level-item tag">phira.dmocken.top</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">lyyh0&#039;s website</a><p class="is-size-7"><span>&copy; 2025 lyyh0</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><!--!--></body></html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>GLSL ES Specification 1.00----目录 - lyyh0&#039;s website</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="lyyh0&#039;s website"><meta name="msapplication-TileImage" content="/res/0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="lyyh0&#039;s website"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Tip: 翻译文档为lyyh0自己拿翻译软件进行翻译，会对结果有所改动，不保证翻译精确查看原文档 1&amp;emsp;引言  &amp;emsp;&amp;emsp;1.1&amp;emsp;更新历史&amp;emsp;&amp;emsp;1.2&amp;emsp;概述&amp;emsp;&amp;emsp;1.3&amp;emsp;错误处理&amp;emsp;&amp;emsp;1.4&amp;emsp;排版惯例   2&amp;emsp;OpenGL ES Shading概述  &amp;emsp;&amp;amp;emsp"><meta property="og:type" content="article"><meta property="og:title" content="GLSL ES Specification 1.00----目录"><meta property="og:url" content="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/"><meta property="og:site_name" content="lyyh0&#039;s website"><meta property="og:description" content="Tip: 翻译文档为lyyh0自己拿翻译软件进行翻译，会对结果有所改动，不保证翻译精确查看原文档 1&amp;emsp;引言  &amp;emsp;&amp;emsp;1.1&amp;emsp;更新历史&amp;emsp;&amp;emsp;1.2&amp;emsp;概述&amp;emsp;&amp;emsp;1.3&amp;emsp;错误处理&amp;emsp;&amp;emsp;1.4&amp;emsp;排版惯例   2&amp;emsp;OpenGL ES Shading概述  &amp;emsp;&amp;amp;emsp"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://www.lyyh0.cloudns.be/img/og_image.png"><meta property="article:published_time" content="1899-12-31T15:55:00.000Z"><meta property="article:author" content="lyyh0"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://www.lyyh0.cloudns.be/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/"},"headline":"GLSL ES Specification 1.00----目录","image":["https://www.lyyh0.cloudns.be/img/og_image.png"],"datePublished":"1899-12-31T15:55:00.000Z","author":{"@type":"Person","name":"lyyh0"},"publisher":{"@type":"Organization","name":"lyyh0's website","logo":{"@type":"ImageObject"}},"description":"Tip: 翻译文档为lyyh0自己拿翻译软件进行翻译，会对结果有所改动，不保证翻译精确查看原文档 1&emsp;引言  &emsp;&emsp;1.1&emsp;更新历史&emsp;&emsp;1.2&emsp;概述&emsp;&emsp;1.3&emsp;错误处理&emsp;&emsp;1.4&emsp;排版惯例   2&emsp;OpenGL ES Shading概述  &emsp;&amp;emsp"}</script><link rel="canonical" href="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/"><link rel="icon" href="/res/0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">lyyh0&#039;s website</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/docs/GLSL_ES_Specification_1.00">GLSL ES 1.00</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="1899-12-31T15:55:00.000Z" title="1900/1/1 00:00:43">1900-01-01</time>发表</span></div></div><h1 class="title is-3 is-size-4-mobile">GLSL ES Specification 1.00----目录</h1><div class="content"><h1 id="Tip-翻译文档为lyyh0自己拿翻译软件进行翻译，会对结果有所改动，不保证翻译精确"><a href="#Tip-翻译文档为lyyh0自己拿翻译软件进行翻译，会对结果有所改动，不保证翻译精确" class="headerlink" title="Tip: 翻译文档为lyyh0自己拿翻译软件进行翻译，会对结果有所改动，不保证翻译精确"></a>Tip: 翻译文档为lyyh0自己拿翻译软件进行翻译，会对结果有所改动，不保证翻译精确</h1><h2 id="查看原文档"><a href="#查看原文档" class="headerlink" title="查看原文档"></a><a target="_blank" rel="noopener" href="https://registry.khronos.org/OpenGL/specs/es/2.0/GLSL_ES_Specification_1.00.pdf">查看原文档</a></h2><details>
+<summary><a href="1">1&emsp;引言</a></summary>
+
+<p>&emsp;&emsp;<a href="1/1">1.1&emsp;更新历史</a><br>&emsp;&emsp;<a href="1/2">1.2&emsp;概述</a><br>&emsp;&emsp;<a href="1/3">1.3&emsp;错误处理</a><br>&emsp;&emsp;<a href="1/4">1.4&emsp;排版惯例</a></p>
+</details>
+<details>
+<summary><a href="2">2&emsp;OpenGL ES Shading概述</a></summary>
+
+<p>&emsp;&emsp;<a href="2/1">2.1&emsp;顶点处理器</a><br>&emsp;&emsp;<a href="2/2">2.2&emsp;片段处理器</a></p>
+</details>
+<details>
+<summary>3&emsp;基本</summary>
+
+<p>&emsp;&emsp;<a href="3/1">3.1&emsp;字集</a><br>&emsp;&emsp;<a href="3/2">3.2&emsp;源字符串</a><br>&emsp;&emsp;<a href="3/3">3.3&emsp;编译的逻辑阶段</a><br>&emsp;&emsp;<a href="3/4">3.4&emsp;预处理器</a><br>&emsp;&emsp;<a href="3/5">3.5&emsp;注释</a><br>&emsp;&emsp;<a href="3/6">3.6&emsp;序列</a><br>&emsp;&emsp;<a href="3/7">3.7&emsp;关键字</a><br>&emsp;&emsp;<a href="3/8">3.8&emsp;标识符</a></p>
+</details>
+<details>
+<summary><a href="4">4&emsp;变量和类型</a></summary>
+<details>
+<summary>&emsp;&emsp;<a href="4/1">4.1&emsp;基本类型</a></summary>
+
+<p>&emsp;&emsp;&emsp;&emsp;<a href="4/1/1">4.1.1&emsp;Void</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/1/2">4.1.2&emsp;布尔值</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/1/3">4.1.3&emsp;整数</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/1/4">4.1.4&emsp;浮点数</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/1/5">4.1.5&emsp;向量</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/1/6">4.1.6&emsp;矩阵</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/1/7">4.1.7&emsp;采样器</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/1/8">4.1.8&emsp;结构</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/1/9">4.1.9&emsp;数组</a></p>
+</details>
+<details>
+<summary>&emsp;&emsp;<a href="4/2">4.2&emsp;作用域</a></summary>
+
+<p>&emsp;&emsp;&emsp;&emsp;<a href="4/2/1">4.2.1&emsp;术语定义</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/2/2">4.2.2&emsp;范围类型</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/2/3">4.2.3&emsp;重新定义变量</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/2/4">4.2.4&emsp;全局共享</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/2/5">4.2.5&emsp;全局作用域</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/2/6">4.2.6&emsp;名称空间和隐藏</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/2/7">4.2.7&emsp;同一范围内的重新声明和重新定义</a></p>
+</details>
+<details>
+<summary>&emsp;&emsp;<a href="4/3">4.3&emsp;存储限定符</a></summary>
+
+<p>&emsp;&emsp;&emsp;&emsp;<a href="4/3/1">4.3.1&emsp;默认存储限定符</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/3/2">4.3.2&emsp;恒定限定符</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/3/3">4.3.3&emsp;属性</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/3/4">4.3.4&emsp;统一</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/3/5">4.3.5&emsp;可变</a></p>
+</details>
+&emsp;&emsp;<a href="4/4">4.4&emsp;参数限定符</a>
+<details>
+<summary>&emsp;&emsp;4.5&emsp;精密度和精密度限定符</summary>
+
+<p>&emsp;&emsp;&emsp;&emsp;<a href="4/5/1">4.5.1&emsp;范围和精度</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/5/2">4.5.2&emsp;精度限定符</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/5/3">4.5.3&emsp;默认精度限定符</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/5/4">4.5.4&emsp;可用的精度限定符</a></p>
+</details>
+<details>
+<summary>&emsp;&emsp;<a href="4/6">4.6&emsp;方差与不变限定符</a></summary>
+
+<p>&emsp;&emsp;&emsp;&emsp;<a href="4/6/1">4.6.1&emsp;不变限定符</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/6/2">4.6.2&emsp;着色器内的不变性</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/6/3">4.6.3&emsp;常数表达式的不变性</a><br>&emsp;&emsp;&emsp;&emsp;<a href="4/6/4">4.6.4&emsp;不变性和联系</a></p>
+</details>
+&emsp;&emsp;<a href="4/7">4.7&emsp;资格顺序</a>
+</details>
+<details>
+<summary>5&emsp;运算符和表达式</summary>
+&emsp;&emsp;<a href="5/1">5.1&emsp;运算符</a><br/>
+&emsp;&emsp;<a href="5/2">5.2&emsp;数组下标</a><br/>
+&emsp;&emsp;<a href="5/3">5.3&emsp;函数调用</a>
+<details>
+<summary>&emsp;&emsp;<a href="5/4">5.4&emsp;构造函数</a></summary>
+
+<p>&emsp;&emsp;&emsp;&emsp;<a href="5/4/1">5.4.1&emsp;转换和标量构造函数</a><br>&emsp;&emsp;&emsp;&emsp;<a href="5/4/2">5.4.2&emsp;向量和矩阵构造器</a><br>&emsp;&emsp;&emsp;&emsp;<a href="5/4/3">5.4.3&emsp;结构构造函数</a><br>&emsp;&emsp;&emsp;&emsp;<a href="5/4/4">5.4.4&emsp;构造函数</a><br>&emsp;&emsp;&emsp;&emsp;<a href="5/4/5">5.4.5&emsp;向量分量</a></p>
+</details>
+
+<p>&emsp;&emsp;<a href="5/5">5.5&emsp;向量分量</a><br>&emsp;&emsp;<a href="5/6">5.6&emsp;矩阵分量</a><br>&emsp;&emsp;<a href="5/7">5.7&emsp;结构和场地</a><br>&emsp;&emsp;<a href="5/8">5.8&emsp;赋值</a><br>&emsp;&emsp;<a href="5/9">5.9&emsp;表达式</a><br>&emsp;&emsp;<a href="5/10">5.10&emsp;常数表达式</a><br>&emsp;&emsp;<a href="5/11">5.11&emsp;向量和矩阵运算</a><br>&emsp;&emsp;<a href="5/12">5.12&emsp;操作的精确性</a><br>&emsp;&emsp;<a href="5/13">5.13&emsp;表达式求值</a></p>
+</details>
+
+
+
+<details>
+<summary>&emsp;&emsp;<a href="6/1">6.1&emsp;函数定义</a></summary>
+
+<p>&emsp;&emsp;&emsp;&emsp;<a href="6/1/1">6.1.1&emsp;函数调用约定</a></p>
+</details>
+
+<p>&emsp;&emsp;<a href="8/7">8.7&emsp;纹理查找函数</a></p>
+<details>
+<summary><a href="9">9&emsp;着色语言语法</a></summary>
+</details>
+<details>
+<summary><a href="12">12&emsp;&emsp;标准参考</a></summary>
+</details><!-- flag of hidden posts --></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/res/0.png" alt="lyyh0"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">lyyh0</p><p class="is-size-6 is-block">lyyh0@lyyh0.cloudns.be</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">0</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/lyyh0"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Bilibili" href="https://space.bilibili.com/602159888"><i class="fab fa-bilibili"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://phira.dmocken.top/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Dmocken的Phira下载站</span></span><span class="level-right"><span class="level-item tag">phira.dmocken.top</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">lyyh0&#039;s website</a><p class="is-size-7"><span>&copy; 2025 lyyh0</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><!--!--></body></html>

@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>GLSL ES Specification 1.00----1.1 更新历史 - lyyh0&#039;s website</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="lyyh0&#039;s website"><meta name="msapplication-TileImage" content="/res/0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="lyyh0&#039;s website"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="返回目录 与OpenGL ES Shading Language规范第16版相比的改进：  纠正了有范围语句的语法  澄清标量不能被视为单分量向量。  扩展了数组索引最低要求。  更正了#line指令的行为。   与OpenGL ES Shading Language规范第15版相比的改进：  预处理器中逻辑运算符的行为。  算术运算的精度。  算术表达式编译器转换规则。  在#extension"><meta property="og:type" content="article"><meta property="og:title" content="GLSL ES Specification 1.00----1.1 更新历史"><meta property="og:url" content="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/1/1/"><meta property="og:site_name" content="lyyh0&#039;s website"><meta property="og:description" content="返回目录 与OpenGL ES Shading Language规范第16版相比的改进：  纠正了有范围语句的语法  澄清标量不能被视为单分量向量。  扩展了数组索引最低要求。  更正了#line指令的行为。   与OpenGL ES Shading Language规范第15版相比的改进：  预处理器中逻辑运算符的行为。  算术运算的精度。  算术表达式编译器转换规则。  在#extension"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://www.lyyh0.cloudns.be/img/og_image.png"><meta property="article:published_time" content="1899-12-31T15:55:00.000Z"><meta property="article:author" content="lyyh0"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://www.lyyh0.cloudns.be/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/1/1/"},"headline":"GLSL ES Specification 1.00----1.1 更新历史","image":["https://www.lyyh0.cloudns.be/img/og_image.png"],"datePublished":"1899-12-31T15:55:00.000Z","author":{"@type":"Person","name":"lyyh0"},"publisher":{"@type":"Organization","name":"lyyh0's website","logo":{"@type":"ImageObject"}},"description":"返回目录 与OpenGL ES Shading Language规范第16版相比的改进：  纠正了有范围语句的语法  澄清标量不能被视为单分量向量。  扩展了数组索引最低要求。  更正了#line指令的行为。   与OpenGL ES Shading Language规范第15版相比的改进：  预处理器中逻辑运算符的行为。  算术运算的精度。  算术表达式编译器转换规则。  在#extension"}</script><link rel="canonical" href="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/1/1/"><link rel="icon" href="/res/0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">lyyh0&#039;s website</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/docs/GLSL_ES_Specification_1.00">GLSL ES 1.00</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="1899-12-31T15:55:00.000Z" title="1900/1/1 00:00:43">1900-01-01</time>发表</span></div></div><h1 class="title is-3 is-size-4-mobile">GLSL ES Specification 1.00----1.1 更新历史</h1><div class="content"><p><a href="../.."><strong>返回目录</strong></a></p>
+<p>与OpenGL ES Shading Language规范第16版相比的改进：</p>
+<ul>
+<li><p>纠正了有范围语句的语法</p>
+</li>
+<li><p>澄清标量不能被视为单分量向量。</p>
+</li>
+<li><p>扩展了数组索引最低要求。</p>
+</li>
+<li><p>更正了#line指令的行为。</p>
+</li>
+</ul>
+<p>与OpenGL ES Shading Language规范第15版相比的改进：</p>
+<ul>
+<li><p>预处理器中逻辑运算符的行为。</p>
+</li>
+<li><p>算术运算的精度。</p>
+</li>
+<li><p>算术表达式编译器转换规则。</p>
+</li>
+<li><p>在#extension之前定义扩展宏。</p>
+</li>
+<li><p>在片段着色器中支持高精度类型是一个选项，而不是扩展。</p>
+</li>
+</ul>
+<p>与OpenGL ES Shading Language规范第14版相比的改进：</p>
+<ul>
+<li><p>澄清void可用于指定空的实际参数列表。</p>
+</li>
+<li><p>赋值返回r值，而不是l值。</p>
+</li>
+<li><p>术语<em>shader</em>是指在顶点或片段处理器上运行的编译单元集。</p>
+</li>
+<li><p>预处理器表达式中未定义的操作数默认不为“0”</p>
+</li>
+<li><p>从具有非void返回类型但不执行return语句的函数返回会导致返回未定义的值。</p>
+</li>
+<li><p>明确了if语句中声明的变量的作用域。</p>
+</li>
+</ul>
+<p>与OpenGL ES Shading Language规范第13版相比的改进：</p>
+<ul>
+<li><p>明确了函数参数的评估顺序。</p>
+</li>
+<li><p>对类型和限定符的使用限制也适用于包含的结构。</p>
+</li>
+<li><p>不允许将无脚本数组作为构造函数的参数。</p>
+</li>
+<li><p>不写入<strong>out</strong>参数的函数会在调用返回时使该参数处于未定义状态。</p>
+</li>
+<li><p>增加了部分参考文献。</p>
+</li>
+<li><p>gl_MaxVaryingFloats&#x3D;32改成了gl_MaxVaryingVectors&#x3D;8。</p>
+</li>
+<li><p>gl_MaxCombinedTextureImageUnit和gl_MaxTextureImageUnits从2改成8。</p>
+</li>
+<li><p>澄清了每个函数定义允许一个函数原型。</p>
+</li>
+</ul>
+<p>与OpenGL ES Shading Language规范第12版相比的改进：</p>
+<ul>
+<li><p>增加了ES 2.0最低要求部分。</p>
+</li>
+<li><p>允许矩阵构造函数获取矩阵参数（与桌面GLSL的统一）。</p>
+</li>
+<li><p>采样器上允许使用精度限定符。</p>
+</li>
+<li><p>不变限定符允许输入不同的片段着色器。必须使用与顶点着色器产生的不同输出匹配。阐明了如何限定内置特殊变量。</p>
+</li>
+<li><p>结构名称在<em>struct_specifier</em>的末尾可见。</p>
+</li>
+<li><p>将所有扩展移动到单独的扩展规范。</p>
+</li>
+<li><p>澄清整数精度。</p>
+</li>
+<li><p>gl_MaxVertexUniformComponents改成gl_MaxVertexUniformVectors。</p>
+</li>
+<li><p>gl_MaxFragmentUniformComponents改成gl_MaxFragmentUniformVectors。</p>
+</li>
+<li><p>删除着色器中的不变性（全局标志也表示着色器内不变）。</p>
+</li>
+<li><p>将内置模块移回外部级别范围。</p>
+</li>
+<li><p>更正：<strong>lowp int</strong>不能用<strong>lowp float</strong>表示。</p>
+</li>
+<li><p>将顶点均匀性从384增加到512，以考虑打包算法的低效性。</p>
+</li>
+<li><p>将__VERSION__改为100。</p>
+</li>
+<li><p>ES中唯一共享的全局变量是统一。变量的精度不需要匹配。</p>
+</li>
+<li><p>根据打包算法定义gl_MaxVaryingFloats。</p>
+</li>
+<li><p>根据打包算法定义gl_MaxUniformComponents。</p>
+</li>
+<li><p>删除了未调整大小的数组声明。</p>
+</li>
+<li><p>定义编译阶段。预处理器在预处理序列生成后运行。</p>
+</li>
+<li><p>已删除嵌入式结构定义。</p>
+</li>
+<li><p>禁止顶点和片段着色器&#x2F;编译单元之间的交叉链接。</p>
+</li>
+<li><p><strong>void</strong>不能用于声明变量或结构元素。</p>
+</li>
+<li><p>固定函数变量计入总数被片段着色器引用。</p>
+</li>
+<li><p>澄清匿名结构。</p>
+</li>
+<li><p>ES只允许两个编译单元，一个用于顶点着色器，一个为片段着色器。</p>
+</li>
+<li><p>编译器必须检测静态递归。</p>
+</li>
+<li><p>常量表达式必须是不变的。</p>
+</li>
+<li><p>明确编译器或链接器在什么情况下必须报告错误。</p>
+</li>
+<li><p>无脚本数组是l值表达式，但只能用作实际参数和括号内。</p>
+</li>
+<li><p>常量表达式可以包含内置函数。</p>
+</li>
+<li><p>常数表达式可以是向量或矩阵的元素。</p>
+</li>
+<li><p>明确数组不能声明为常量，因为没有初始化它们的方法。</p>
+</li>
+<li><p>从形式参数中删除了结构定义。</p>
+</li>
+<li><p>删除了双名称空间。</p>
+</li>
+<li><p>明确允许重复声明，但不允许在同一范围内重复定义。</p>
+</li>
+<li><p>不允许本地函数声明。</p>
+</li>
+<li><p>删除重新定义内置函数的能力（简化。功能对ES无效）。</p>
+</li>
+</ul>
+<p>与OpenGL ES Shading Language规范第11版相比的改进：</p>
+<ul>
+<li><p>添加了编译器生成的错误列表。</p>
+</li>
+<li><p>在浮点常量中不指定空格。</p>
+</li>
+<li><p>指定<strong>struct</strong>构造函数如何使用函数名称空间。</p>
+</li>
+<li><p>禁止main()函数使用其他签名。</p>
+</li>
+<li><p>阐明其他函数是如何隐藏函数的。</p>
+</li>
+<li><p>指定无法定义精度的表达式必须以默认精度计算</p>
+</li>
+<li><p>指定着色器内不变性的规则。</p>
+</li>
+</ul>
+<p>与OpenGL ES Shading Language规范第10版相比的改进：</p>
+<ul>
+<li>这不仅仅是定义扩展的宏被定义为值“1”，还是为了更符合正确的惯例。</li>
+</ul>
+<p>与OpenGL ES Shading Language规范第9版相比的改进：</p>
+<ul>
+<li><p>正式为噪声函数添加了扩展。</p>
+</li>
+<li><p>正式为衍生函数添加了扩展。</p>
+</li>
+<li><p>仅当启用3D纹理扩展时，3D纹理才可用。这是API扩展的一部分。</p>
+</li>
+</ul>
+<p>与OpenGL ES Shading Language规范第8版相比的改进：</p>
+<ul>
+<li><p>在末尾添加了语法。</p>
+</li>
+<li><p>更正多个限定符顺序，以匹配现有的参数限定顺序。</p>
+</li>
+<li><p>改善<strong>invariant</strong>的声明：获取一个列表，是用于全局的，在使用前需要声明。</p>
+</li>
+<li><p>制作规范引用是指2.0 OpenGL规范，而不是1.4版本。</p>
+</li>
+<li><p>删除了gl_MaxTextureUnits，因为它仅用于固定功能。</p>
+</li>
+<li><p>删除了关于禁用点块纹理的注释。</p>
+</li>
+<li><p>为未来可能的超精度限定符保留了“<strong>superp</strong>”。</p>
+</li>
+<li><p>在第7节中为内置变量提供了特定的精度限定符。</p>
+</li>
+<li><p>在内置函数（第8章）中添加了关于参数和返回值精度限定的注释。</p>
+</li>
+</ul>
+<p>与OpenGL ES Shading Language规范第7版相比的改进：</p>
+<ul>
+<li><p>增加了实际范围和精度。</p>
+</li>
+<li><p>说明浮点溢出时会发生什么。</p>
+</li>
+<li><p>如果可能，将中间结果精度更改为基于操作数的精度，这不包括l值的精度。</p>
+</li>
+<li><p>添加宏GL_ES以测试ES系统的编译。</p>
+</li>
+<li><p>允许依赖于平台的越界数组访问行为。</p>
+</li>
+</ul>
+<p>与OpenGL ES Shading Language规范第6版相比的改进：</p>
+<ul>
+<li><p>为浮点和整数类型添加了精度限定符<strong>highp</strong>、<strong>mediump</strong>和<strong>lowp</strong>。</p>
+</li>
+<li><p>添加了不变限定符，表示输出值是不变的。删除特定机制itransform()。</p>
+</li>
+<li><p>语法已被删除，稍后将替换为正确的ES语法。</p>
+</li>
+</ul>
+<p>与OpenGL ES Shading Language规范第5版相比的改进：</p>
+<ul>
+<li>修复了大量拼写错误和英语水平澄清。在OpenGL着色语言规范的修订版59中修复了相同的拼写错误，形成了修订版60。这些共享的非功能性更改没有用更改条或其他标记标识。</li>
+</ul>
+<p>与OpenGL Shading Language规范第59版相比的改进：</p>
+<ul>
+<li><p>大多数OpenGL状态统一变量都被删除了。</p>
+</li>
+<li><p>所有OpenGL状态属性变量都将被删除。</p>
+</li>
+<li><p>所有OpenGL状态变量都被删除。</p>
+</li>
+<li><p>输出变量gl_ClipVertex和gl_FragDepth被删除。</p>
+</li>
+<li><p>通过添加内置的gl_PointCoord可变变量来支持点块纹理。</p>
+</li>
+<li><p>最小最大顶点属性从16更改为8，最小最大顶点均匀分量从512更改为384。</p>
+</li>
+<li><p>删除了1D和阴影纹理。</p>
+</li>
+<li><p>指定了建议的精度提示和最小精度。</p>
+</li>
+<li><p>添加通用itransform()以替换删除的修复功能ftransform()。</p>
+</li>
+<li><p>dFdx()、dFdy()和fwidth()是可选的。</p>
+</li>
+<li><p>noise()是可选的。</p>
+</li>
+<li><p>其他次要的语言修正&#x2F;简化。不允许静态递归（动态递归已被禁止）。可以跳过错误消息。在数组外部写入的行为是有限的。clamp()和smoothstep()域描述得到了改进。</p>
+</li>
+</ul>
+<!-- flag of hidden posts --></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/res/0.png" alt="lyyh0"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">lyyh0</p><p class="is-size-6 is-block">lyyh0@lyyh0.cloudns.be</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">0</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/lyyh0"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Bilibili" href="https://space.bilibili.com/602159888"><i class="fab fa-bilibili"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://phira.dmocken.top/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Dmocken的Phira下载站</span></span><span class="level-right"><span class="level-item tag">phira.dmocken.top</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">lyyh0&#039;s website</a><p class="is-size-7"><span>&copy; 2025 lyyh0</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><!--!--></body></html>

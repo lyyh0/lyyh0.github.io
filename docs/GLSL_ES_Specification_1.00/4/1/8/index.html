@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>GLSL ES Specification 1.00----4.1.8 结构 - lyyh0&#039;s website</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="lyyh0&#039;s website"><meta name="msapplication-TileImage" content="/res/0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="lyyh0&#039;s website"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="返回目录 用户定义的类型可以通过使用struct关键字将其他已定义的类型聚合到一个结构中来创建。例如， &amp;emsp;&amp;emsp;struct light {&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;float intensity;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;vec3 position;&amp;emsp;&amp;emsp;} lightVar; 在这个例子中，light成为新类型的名称"><meta property="og:type" content="article"><meta property="og:title" content="GLSL ES Specification 1.00----4.1.8 结构"><meta property="og:url" content="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/4/1/8/"><meta property="og:site_name" content="lyyh0&#039;s website"><meta property="og:description" content="返回目录 用户定义的类型可以通过使用struct关键字将其他已定义的类型聚合到一个结构中来创建。例如， &amp;emsp;&amp;emsp;struct light {&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;float intensity;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;vec3 position;&amp;emsp;&amp;emsp;} lightVar; 在这个例子中，light成为新类型的名称"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://www.lyyh0.cloudns.be/img/og_image.png"><meta property="article:published_time" content="1899-12-31T15:55:00.000Z"><meta property="article:author" content="lyyh0"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://www.lyyh0.cloudns.be/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/4/1/8/"},"headline":"GLSL ES Specification 1.00----4.1.8 结构","image":["https://www.lyyh0.cloudns.be/img/og_image.png"],"datePublished":"1899-12-31T15:55:00.000Z","author":{"@type":"Person","name":"lyyh0"},"publisher":{"@type":"Organization","name":"lyyh0's website","logo":{"@type":"ImageObject"}},"description":"返回目录 用户定义的类型可以通过使用struct关键字将其他已定义的类型聚合到一个结构中来创建。例如， &emsp;&emsp;struct light {&emsp;&emsp;&emsp;&emsp;float intensity;&emsp;&emsp;&emsp;&emsp;vec3 position;&emsp;&emsp;} lightVar; 在这个例子中，light成为新类型的名称"}</script><link rel="canonical" href="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/4/1/8/"><link rel="icon" href="/res/0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">lyyh0&#039;s website</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/docs/GLSL_ES_Specification_1.00">GLSL ES 1.00</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="1899-12-31T15:55:00.000Z" title="1900/1/1 00:00:43">1900-01-01</time>发表</span></div></div><h1 class="title is-3 is-size-4-mobile">GLSL ES Specification 1.00----4.1.8 结构</h1><div class="content"><p><a href="../../.."><strong>返回目录</strong></a></p>
+<p>用户定义的类型可以通过使用<strong>struct</strong>关键字将其他已定义的类型聚合到一个结构中来创建。例如，</p>
+<p>&emsp;&emsp;struct light {<br>&emsp;&emsp;&emsp;&emsp;float intensity;<br>&emsp;&emsp;&emsp;&emsp;vec3 position;<br>&emsp;&emsp;} lightVar;</p>
+<p>在这个例子中，<em>light</em>成为新类型的名称，<em>lightVar</em>成为<em>light</em>类型的变量。要声明新类型的变量，请使用其名称（不带关键字<strong>struct</strong>）。</p>
+<p>&emsp;&emsp;light lightVar2;</p>
+<p>更正式地说，结构声明如下。然而，完整正确的语法如第9节“着色语言语法”所示。</p>
+<p>&emsp;&emsp;<em>struct-definition :</em><br>&emsp;&emsp;&emsp;&emsp;<em>qualifiers</em><sub><em>opt</em></sub> <strong>struct</strong> <em>name</em><sub><em>opt</em></sub> <strong>{</strong> <em>member-list</em> <strong>}</strong> <em>declarators</em><sub><em>opt</em></sub> ;</p>
+<p>&emsp;&emsp;<em>member-list :</em><br>&emsp;&emsp;&emsp;&emsp;<em>member-declaration;</em><br>&emsp;&emsp;&emsp;&emsp;<em>member-declaration</em> <em>member-list;</em></p>
+<p>&emsp;&emsp;<em>member-declaration :</em><br>&emsp;&emsp;&emsp;&emsp;<em>basic-type</em> <em>declarators;</em></p>
+<p>其中<em>name</em>成为用户定义的类型，可用于将变量声明为这种新类型。该名称与其他变量、类型和函数共享相同的命名空间。所有以前可见的具有该名称的变量、类型、构造函数或函数都是隐藏的。可选的<em>qualifiers</em>仅适用于任何<em>declarators</em>，而不是为<em>name</em>定义的类型的一部分。</p>
+<p>结构必须至少有一个成员声明。成员声明符可以包含精度限定符，但不能包含任何其他限定符。不支持位字段。成员类型必须已经定义（没有正向引用，也没有嵌入定义）。成员声明不能包含初始化器。成员声明符可以包含数组。此类数组必须指定大小，并且大小必须是大于零的积分常数表达式（见第4.3.3节“积分常数表达式”）。每一级结构都有自己的命名空间，用于成员声明器中给出的名称；这样的名称只需要在该名称空间内是唯一的。</p>
+<p>不支持匿名结构声明器（类型为结构但没有声明器的成员声明）。</p>
+<p>&emsp;&emsp;struct S<br>&emsp;&emsp;{<br>&emsp;&emsp;&emsp;&emsp;int x;<br>&emsp;&emsp;};<br>&emsp;&emsp;struct T<br>&emsp;&emsp;{<br>&emsp;&emsp;&emsp;&emsp;S;&emsp;&#x2F;&#x2F; 错误：不允许使用匿名结构.<br>&emsp;&emsp;&emsp;&emsp;int y;<br>&emsp;&emsp;};</p>
+<p>不支持嵌入式结构定义：</p>
+<p>示例1：</p>
+<p>&emsp;&emsp;struct S<br>&emsp;&emsp;{<br>&emsp;&emsp;&emsp;&emsp;struct T&emsp;&#x2F;&#x2F; 错误：不支持嵌入式结构定义。<br>&emsp;&emsp;&emsp;&emsp;{<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;int a;<br>&emsp;&emsp;&emsp;&emsp;} t;<br>&emsp;&emsp;int b:<br>&emsp;&emsp;};</p>
+<p>示例2：</p>
+<p>&emsp;&emsp;struct T<br>&emsp;&emsp;{<br>&emsp;&emsp;&emsp;&emsp;int a;<br>&emsp;&emsp;};<br>&emsp;&emsp;struct S<br>&emsp;&emsp;{<br>&emsp;&emsp;&emsp;&emsp;T t;&emsp;&#x2F;&#x2F; ok.<br>&emsp;&emsp;&emsp;&emsp;int b;<br>&emsp;&emsp;};<br>结构可以在声明时使用构造函数初始化，如第5.4.3节“结构构造函数”所述。</p>
+<p>对类型或限定符使用的任何限制也适用于包含该类型或限定词的结构。这是递归应用的。</p>
+<!-- flag of hidden posts --></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/res/0.png" alt="lyyh0"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">lyyh0</p><p class="is-size-6 is-block">lyyh0@lyyh0.cloudns.be</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">0</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/lyyh0"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Bilibili" href="https://space.bilibili.com/602159888"><i class="fab fa-bilibili"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://phira.dmocken.top/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Dmocken的Phira下载站</span></span><span class="level-right"><span class="level-item tag">phira.dmocken.top</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">lyyh0&#039;s website</a><p class="is-size-7"><span>&copy; 2025 lyyh0</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><!--!--></body></html>

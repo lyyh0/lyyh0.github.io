@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>GLSL ES Specification 1.00----3.4 预处理器 - lyyh0&#039;s website</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="lyyh0&#039;s website"><meta name="msapplication-TileImage" content="/res/0.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="lyyh0&#039;s website"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="返回目录 有一个预处理器，在编译过程中处理源字符串。 预处理器指令的完整列表如下。 &amp;emsp;&amp;emsp;#&amp;emsp;&amp;emsp;#define&amp;emsp;&amp;emsp;#undef &amp;emsp;&amp;emsp;#if&amp;emsp;&amp;emsp;#ifdef&amp;emsp;&amp;emsp;#ifndef&amp;emsp;&amp;emsp;#else&amp;emsp;&amp;emsp;#elif&amp;emsp;&amp;emsp;#endif &amp;amp;e"><meta property="og:type" content="article"><meta property="og:title" content="GLSL ES Specification 1.00----3.4 预处理器"><meta property="og:url" content="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/3/4/"><meta property="og:site_name" content="lyyh0&#039;s website"><meta property="og:description" content="返回目录 有一个预处理器，在编译过程中处理源字符串。 预处理器指令的完整列表如下。 &amp;emsp;&amp;emsp;#&amp;emsp;&amp;emsp;#define&amp;emsp;&amp;emsp;#undef &amp;emsp;&amp;emsp;#if&amp;emsp;&amp;emsp;#ifdef&amp;emsp;&amp;emsp;#ifndef&amp;emsp;&amp;emsp;#else&amp;emsp;&amp;emsp;#elif&amp;emsp;&amp;emsp;#endif &amp;amp;e"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://www.lyyh0.cloudns.be/img/og_image.png"><meta property="article:published_time" content="1899-12-31T15:55:00.000Z"><meta property="article:author" content="lyyh0"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://www.lyyh0.cloudns.be/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/3/4/"},"headline":"GLSL ES Specification 1.00----3.4 预处理器","image":["https://www.lyyh0.cloudns.be/img/og_image.png"],"datePublished":"1899-12-31T15:55:00.000Z","author":{"@type":"Person","name":"lyyh0"},"publisher":{"@type":"Organization","name":"lyyh0's website","logo":{"@type":"ImageObject"}},"description":"返回目录 有一个预处理器，在编译过程中处理源字符串。 预处理器指令的完整列表如下。 &emsp;&emsp;#&emsp;&emsp;#define&emsp;&emsp;#undef &emsp;&emsp;#if&emsp;&emsp;#ifdef&emsp;&emsp;#ifndef&emsp;&emsp;#else&emsp;&emsp;#elif&emsp;&emsp;#endif &amp;e"}</script><link rel="canonical" href="https://www.lyyh0.cloudns.be/docs/GLSL_ES_Specification_1.00/3/4/"><link rel="icon" href="/res/0.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">lyyh0&#039;s website</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/docs/GLSL_ES_Specification_1.00">GLSL ES 1.00</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="1899-12-31T15:55:00.000Z" title="1900/1/1 00:00:43">1900-01-01</time>发表</span></div></div><h1 class="title is-3 is-size-4-mobile">GLSL ES Specification 1.00----3.4 预处理器</h1><div class="content"><p><a href="../.."><strong>返回目录</strong></a></p>
+<p>有一个预处理器，在编译过程中处理源字符串。</p>
+<p>预处理器指令的完整列表如下。</p>
+<p>&emsp;&emsp;#<br>&emsp;&emsp;#define<br>&emsp;&emsp;#undef</p>
+<p>&emsp;&emsp;#if<br>&emsp;&emsp;#ifdef<br>&emsp;&emsp;#ifndef<br>&emsp;&emsp;#else<br>&emsp;&emsp;#elif<br>&emsp;&emsp;#endif</p>
+<p>&emsp;&emsp;#error<br>&emsp;&emsp;#pragma</p>
+<p>&emsp;&emsp;#extension<br>&emsp;&emsp;#version</p>
+<p>&emsp;&emsp;#line</p>
+<p>以下运算符也可用</p>
+<p>&emsp;&emsp;defined</p>
+<p>每个数字符号（<strong>#</strong>）在其行中只能以空格或水平制表符开头。它后面也可能是空格和水平制表符，位于指令之前。每个指令都以新行终止。预处理不会改变源字符串中新行的数量和相对位置。</p>
+<p>行上的数字符号（<strong>#</strong>）本身被忽略。上面未列出的任何指令都会导致诊断消息，并将着色器视为格式错误。</p>
+<p><strong>#define</strong>和<strong>#undef</strong>功能的定义与C++相同，用于有和没有宏参数的宏定义。</p>
+<p>以下预定义宏可用</p>
+<p>&emsp;&emsp;__LINE__<br>&emsp;&emsp;__FILE__<br>&emsp;&emsp;__VERSION__<br>&emsp;&emsp;GL_ES</p>
+<p><em>__LINE__</em>将替换一个十进制整数常量，该常量比当前源字符串中前面的新行数多一个。</p>
+<p><em>__FILE__</em>将替换一个十进制整数常量，表示当前正在处理的源字符串编号。</p>
+<p><em>__VERSION__</em>将替换一个反映OpenGL ES着色语言版本号的十进制整数。本文档中描述的着色语言版本将用<em>__VERSION__</em>替换十进制整数100。</p>
+<p><em>GL_ES</em>将被定义并设置为1。对于非ES OpenGL Shading Language，情况并非如此，因此可以使用它进行编译时测试，以查看着色器是否在ES系统上运行。</p>
+<p>所有包含两个连续下划线（<strong>__</strong>）的宏名称都保留为将来用作预定义的宏名称。所有前缀为“GL_”（“GL”后跟一个下划线）的宏名称也都是保留的。</p>
+<p><strong>#if、#ifdef、#ifndef、#else、#elif</strong>和<strong>#endif</strong>被定义为与C++一样操作，但以下情况除外：</p>
+<ul>
+<li><p><strong>#if</strong>和<strong>#elif</strong>后面的表达式仅限于对文字整数常量以及<strong>定义</strong>运算符使用标识符进行操作的表达式。</p>
+</li>
+<li><p>未被<strong>定义</strong>的运算符使用未定义的标识符默认不为“0”。使用此类标识符会导致错误。</p>
+</li>
+<li><p>不支持字符常量。</p>
+</li>
+</ul>
+<p>可用的运算符如下。</p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>操作符表</th>
+<th>运算符</th>
+<th>结合性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1（最高）</td>
+<td>括号分组</td>
+<td>( )</td>
+<td>N&#x2F;A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>操作符</td>
+<td>defined + - ~ !</td>
+<td>从右到左</td>
+</tr>
+<tr>
+<td>3</td>
+<td>倍数</td>
+<td>* &#x2F; %</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>4</td>
+<td>添加</td>
+<td>+ -</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>5</td>
+<td>逐位转换</td>
+<td>&lt;&lt; &gt;&gt;</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>6</td>
+<td>比较</td>
+<td>&lt; &gt; &lt;&#x3D; &gt;&#x3D;</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>7</td>
+<td>判断</td>
+<td>&#x3D;&#x3D; !&#x3D;</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>8</td>
+<td>逐位与</td>
+<td>&amp;</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>9</td>
+<td>逐位异或</td>
+<td>^</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>10</td>
+<td>逐位同或</td>
+<td>|</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>11</td>
+<td>逻辑与</td>
+<td>&amp;&amp;</td>
+<td>从左到右</td>
+</tr>
+<tr>
+<td>12（最低）</td>
+<td>逻辑同或</td>
+<td>||</td>
+<td>从左到右</td>
+</tr>
+</tbody></table>
+<p>定义的运算符可以用以下方式之一使用：</p>
+<p>&emsp;&emsp;defined identifier<br>&emsp;&emsp;defined <em>( identifier</em> )</p>
+<p>没有基于数字符号的运算符（没有<strong>#、#@、##</strong>等），也没有<strong>sizeof</strong>运算符。</p>
+<p>在预处理器中应用运算符的语义与C++预处理器中的标准相匹配，但有以下例外：</p>
+<ul>
+<li><p>当且仅当第一个操作数的计算结果为非零时，才会计算逻辑与（&amp;&amp;）操作中的第二个操作数。</p>
+</li>
+<li><p>当且仅当第一个操作数的计算结果为零时，才会计算逻辑或（“||”）操作中的第二个操作数。</p>
+</li>
+</ul>
+<p>如果未计算操作数，则操作数中存在未定义的标识符不会导致错误。</p>
+<p>预处理器表达式将在编译时进行计算。</p>
+<p><strong>#error</strong>能实现将诊断消息放入着色器对象的信息日志中（请参阅平台文档中的API，了解如何访问着色器对象信息日志）。消息是<strong>#error</strong>指令后面的标记，直到新行的第一行。然后，实现必须认为着色器格式不正确。</p>
+<p><strong>#pragma</strong>允许依赖于实现的编译器控制。<strong>#pragma</strong>之后的序列不受预处理器宏扩展的约束。如果一个实现无法识别<strong>#pragma</strong>后面的标记，那么它将忽略该pragma。以下语法被定义为语言的一部分。</p>
+<p>&emsp;&emsp;#pragma STDGL</p>
+<p>STDGL语法用于保留编译指令，以供该语言的未来修订使用。任何实现都不能使用第一个序列为STDGL的pragma。</p>
+<p>&emsp;&emsp;#pragma optimize(on)<br>&emsp;&emsp;#pragma optimize(off)</p>
+<p>可用于关闭优化，以帮助开发和调试着色器。它只能在函数定义之外使用。默认情况下，所有着色器都启用了优化。调试程序</p>
+<p>&emsp;&emsp;#pragma debug(on)<br>&emsp;&emsp;#pragma debug(off)</p>
+<p>可用于使用调试信息编译和注释着色器，以便它可以与调试器一起使用。它只能在函数定义之外使用。默认情况下，调试处于关闭状态。</p>
+<p>每个编译单元都应该使用<strong>#version</strong>指令声明其编写语言的版本：</p>
+<p>&emsp;&emsp;#version number</p>
+<p>其中，对于本规范的语言版本，数字必须为100（遵循与上述<em>__VERSION__</em>相同的约定），在这种情况下，指令将被接受，没有错误或警告。任何小于100的<em>数字</em>都会导致生成错误。任何大于编译器支持的语言最新版本的<em>数字</em>都会导致生成错误。该语言的版本100不要求编译单元包含此指令，不包含<strong>#version</strong>指令的编译单元将被视为目标版本100。</p>
+<p>除了注释和空格之外，<strong>#version</strong>指令必须出现在编译单元中的任何其他部分之前。</p>
+<p>默认情况下，此语言的编译器必须为不符合此规范的编译单元发出编译时语法、句法和语义错误。必须首先启用任何扩展行为。控制编译器在扩展方面的行为的指令是用<strong>#extension</strong>指令声明的</p>
+<p>&emsp;&emsp;#extension extension_name : behavior<br>&emsp;&emsp;#extension all : behavior</p>
+<p>其中<em>extension_name</em>是扩展名的名称。本规范中没有记录扩展名。序列表示该行为适用于编译器支持的所有扩展。<em>behavior</em>可以是以下之一</p>
+<table>
+<thead>
+<tr>
+<th><em>behavior</em></th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>require</strong></td>
+<td>按照扩展<em>extension_name</em>指定的行为。<br/>如果扩展<strong>extension_name</strong>不受支持，或者<strong>all</strong>被指定了，则在<strong>#extension</strong>上给出错误。</td>
+</tr>
+<tr>
+<td><strong>enable</strong></td>
+<td>按照扩展<em>extension_name</em>指定的行为。<br/>如果扩展<strong>extension_name</strong>不受支持，则对<strong>#extension</strong>发出警告。<br/>如果<strong>all</strong>被指定了，则在<strong>#extension</strong>上给出错误。</td>
+</tr>
+<tr>
+<td><strong>warn</strong></td>
+<td>按照扩展<em>extension_name</em>指定的行为，只是对该扩展的任何可检测使用发出警告，除非其他启用或必需的扩展支持这种使用。<br/>如果<strong>all</strong>被指定了，则对所使用的任何扩展的所有可检测用途发出警告。<br/>如果扩展<em>extension_name</em>不受支持，则对<strong>#extension</strong>发出警告。</td>
+</tr>
+<tr>
+<td><strong>disable</strong></td>
+<td>表现得（包括发出错误和警告）好像扩展<em>extension_name</em>不是语言定义的一部分。<br/>如果<strong>all</strong>被指定了，那么行为必须恢复到被编译语言的非扩展核心版本。<br/>如果扩展extension_name不受支持，则对<strong>#extension</strong>发出警告。</td>
+</tr>
+</tbody></table>
+<p><strong>extension</strong>指令是一种简单的低级机制，用于设置每个扩展的行为。它没有定义哪些组合是合适的，这些组合必须在其他地方定义。指令的顺序在设置每个扩展的行为时很重要：稍后出现的指令会覆盖之前看到的指令。all变量设置所有扩展的行为，覆盖所有先前发布的<strong>extension</strong>指令，但仅适用于<strong>warn</strong>和<strong>disable</strong>的行为。</p>
+<p>编译器的初始状态就像发出指令</p>
+<p>&emsp;&emsp;#extension all : disable</p>
+<p>一样，告诉编译器所有错误和警告报告都必须根据此规范完成，忽略任何扩展。</p>
+<p>每个扩展都可以定义其允许的范围粒度。如果什么都没说，粒度就是一个编译单元，扩展指令必须出现在任何非预处理器序列之前。如有必要，链接器可以强制执行大于单个编译单元的粒度，在这种情况下，每个涉及的编译单元都必须包含必要的扩展指令。</p>
+<p>宏扩展不在包含<strong>#extension</strong>和<strong>#version</strong>指令的行上进行。</p>
+<p>每个扩展都有一个关联的宏。宏总是在支持扩展的实现中定义的。这允许使用以下构造：</p>
+<p>&emsp;&emsp;#ifdef OES_extension_name<br>&emsp;&emsp;&emsp;&emsp;#extension OES_extension_name : enable<br>&emsp;&emsp;&emsp;&emsp;&#x2F;&#x2F; 需要扩展名的代码<br>&emsp;&emsp;#else<br>&emsp;&emsp;&emsp;&emsp;&#x2F;&#x2F; 取代节<br>&emsp;&emsp;#endif</p>
+<p><strong>#line</strong>在宏替换后必须具有以下两种形式之一：</p>
+<p>&emsp;&emsp;#line <em>line</em><br>&emsp;&emsp;#line <em>line</em> <em>source-string-number</em></p>
+<p>其中<em>line</em>和<em>source-string-number</em>是常数整数表达式。处理完此指令（包括其新行）后，实现将表现得好像以下行具有行号<em>line</em>和以源字符串号<em>source-string-number</em>开头。后续的源字符串将按顺序编号，直到另一个<strong>#line</strong>指令覆盖该编号。</p>
+<p>如果在宏展开过程中遇到预处理器指令，则结果未定义。在这种情况下，编译器可能会也可能不会报告错误。</p>
+<!-- flag of hidden posts --></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/res/0.png" alt="lyyh0"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">lyyh0</p><p class="is-size-6 is-block">lyyh0@lyyh0.cloudns.be</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">0</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/lyyh0"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Bilibili" href="https://space.bilibili.com/602159888"><i class="fab fa-bilibili"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://phira.dmocken.top/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Dmocken的Phira下载站</span></span><span class="level-right"><span class="level-item tag">phira.dmocken.top</span></span></a></li></ul></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">lyyh0&#039;s website</a><p class="is-size-7"><span>&copy; 2025 lyyh0</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><!--!--></body></html>
